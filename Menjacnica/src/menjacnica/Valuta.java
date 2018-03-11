@@ -9,40 +9,48 @@ public class Valuta {
 	private double kupovni;
 	private double srednji;
 	private GregorianCalendar datum;
+	
+	
 	public String getNaziv() {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv == null) throw new RuntimeException("Unesena vrijednost u naziv je null");
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if(skraceniNaziv == null) throw new RuntimeException("Unesena vrijednost u skraceniNaziv je null");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public double getProdajni() {
 		return prodajni;
 	}
 	public void setProdajni(double prodajni) {
+		if(prodajni <= 0) throw new RuntimeException("Unijeta je negativna vrijednost za prodajni kurs");
 		this.prodajni = prodajni;
 	}
 	public double getKupovni() {
 		return kupovni;
 	}
 	public void setKupovni(double kupovni) {
+		if(kupovni <= 0) throw new RuntimeException("Unijeta je negativna vrijednost za kupovni kurs");
 		this.kupovni = kupovni;
 	}
 	public double getSrednji() {
 		return srednji;
 	}
 	public void setSrednji(double srednji) {
+		if(srednji <= 0) throw new RuntimeException("Unijeta je negativna vrijednost za srednji kurs");
 		this.srednji = srednji;
 	}
 	public GregorianCalendar getDatum() {
 		return datum;
 	}
 	public void setDatum(GregorianCalendar datum) {
+		if(datum == null) throw new RuntimeException("Vrijednost datuma ne smije biti null");
 		this.datum = datum;
 	}
 	@Override
