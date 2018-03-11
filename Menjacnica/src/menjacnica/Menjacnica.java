@@ -10,20 +10,33 @@ public class Menjacnica implements interfejsZaMenjacnicu{
 
 	@Override
 	public void dodavanjeKursa(Valuta v) {
-		// TODO Auto-generated method stub
+		for(int i = 0 ; i < valute.size() ; i ++) {
+			if(valute.get(i).equals(v)) {
+				throw new RuntimeException("Valuta vec postoji");
+			}
+		}
 		
+		valute.add(v);
 	}
 
 	@Override
 	public void brisanjeKursa(Valuta v) {
-		// TODO Auto-generated method stub
-		
+		if(!valute.contains(v)) {
+			throw new RuntimeException("Valuta ne postoji u listi");
+		}
+		valute.remove(valute.indexOf(v));
 	}
 
 	@Override
 	public Valuta vracanjeKursa(String naziv, GregorianCalendar datum) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		for(int i = 0 ; i < valute.size() ; i ++) {
+			if(valute.get(i).getNaziv().equals(naziv) && valute.get(i).getDatum().equals(datum)) {
+				return valute.get(i);
+			}
+		}
+		
+		throw new RuntimeException("Valuta ne postoji");
 	}
 
 }
