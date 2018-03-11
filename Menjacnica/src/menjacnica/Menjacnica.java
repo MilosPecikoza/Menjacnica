@@ -10,8 +10,10 @@ public class Menjacnica implements interfejsZaMenjacnicu{
 
 	@Override
 	public void dodavanjeKursa(Valuta v) {
-		// TODO Auto-generated method stub
+		if(valute.contains(v))
+				throw new RuntimeException("Valuta vec postoji");
 		
+		valute.add(v);
 	}
 
 	@Override
